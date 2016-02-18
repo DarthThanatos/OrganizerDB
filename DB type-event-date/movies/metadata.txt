@@ -10,3 +10,4 @@ TheNiceGuys 2016-05-20.txt
 Triple9 2016-03-18.txt
 Warcraft 2016-06-10.txt
 SerbianFilm 2016-02-09.txt
+Batman 2016-02-05.txt
