@@ -17,24 +17,26 @@ public class MetadataFixer {
 		File[] listOfFiles = folder.listFiles();
 		String metadataContent = "";
 		for (int i = 0; i < listOfFiles.length; i++) {
-		if (listOfFiles[i].isFile()) {
-			System.out.println("File " + listOfFiles[i].getName());
-			if(!listOfFiles[i].getName().endsWith(".txt")){
-				System.out.println("Deleting file " + listOfFiles[i].getName());
-				listOfFiles[i].delete();
-			}
-			else{
-				if(!listOfFiles[i].getName().equals( "metadata.txt")){
-					System.out.println(listOfFiles[i].getName() + " != " + "metadata.txt");
-					metadataContent += listOfFiles[i].getName() + "\n";
+			if (listOfFiles[i].isFile()) {
+				System.out.println("File " + listOfFiles[i].getName());
+				if(!listOfFiles[i].getName().endsWith(".txt")){
+					System.out.println("Deleting file " + listOfFiles[i].getName());
+					listOfFiles[i].delete();
 				}
-			}
-		} else if (listOfFiles[i].isDirectory()) {
-			if(recursiveVistit(dirName + "//"+ listOfFiles[i].getName())) {
-				if(new File(dirName + "//" + listOfFiles[i].getName()).delete()) System.out.println("Deleted");
-				else System.out.println("NOT    Deleted");
+				else{
+					if(!listOfFiles[i].getName().equals( "metadata.txt")){
+						System.out.println(listOfFiles[i].getName() + " != " + "metadata.txt");
+						metadataContent += listOfFiles[i].getName() + "\n";
+					}
 				}
-			}
+			} 
+			else 
+				if (listOfFiles[i].isDirectory()) {
+					if(recursiveVistit(dirName + "//"+ listOfFiles[i].getName())) {
+						if(new File(dirName + "//" + listOfFiles[i].getName()).delete()) System.out.println("Deleted");
+						else System.out.println("NOT    Deleted");
+					}
+				}
 		}
 		try{
 			BufferedWriter metaWriter = new BufferedWriter(new FileWriter(dirName + "//metadata.txt"));
