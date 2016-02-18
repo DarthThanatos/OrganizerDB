@@ -1,2 +1,5 @@
 games
 movies
+music
+sport
+TV shows

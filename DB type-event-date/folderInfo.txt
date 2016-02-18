@@ -2,3 +2,4 @@ games
 movies
 TV shows
 sport
+music
