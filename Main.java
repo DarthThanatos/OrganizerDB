@@ -37,14 +37,14 @@ public class Main {
 	public static void createType_Event_DateDB(){
 		String dirDestination = "DB type-event-date//" + evType;
 		String fileDestination = dirDestination + "//" + evName + " " + evDate + ".txt";
-		String metaLine = evName + "\n";
+		String metaLine = evName + " "  + evDate +  ".txt\n";
 		createDatabase(dirDestination,fileDestination,metaLine);	
 	}
 	
 	public static void createDate_Type_EventDB(){
 		String dirDestination = "DB date-type-event//" + evDate + "//" + evType;
 		String fileDestination = dirDestination + "//" + evName + ".txt";
-		String metaLine = evName + " " + evDate +"\n";
+		String metaLine = evName + ".txt\n";
 		createDatabase(dirDestination, fileDestination,metaLine);
 	}
 	
@@ -62,7 +62,6 @@ public class Main {
 			metaWriter = new BufferedWriter(new FileWriter(metadata,true));
 			if(eventFile.createNewFile()) {
 				metaWriter.write(metaLine);
-				System.out.println("Inside");
 			}
 			System.out.println("File " + fileDestination + " created");
 			eventWriter = new BufferedWriter(new FileWriter(eventFile));
@@ -123,7 +122,17 @@ public class Main {
 	}
 	
 	public static boolean gotEvNameCorrectly(){
-		evName = cin(inputName, "Type name of the event: " ).replace(" ","");
+		evName = cin(inputName, "Type name of the event: " )
+			.replace(" ","")
+			.replace(":","")
+			.replace("\\","")
+			.replace("/","")
+			.replace("*","")
+			.replace("?","")
+			.replace("\"","")
+			.replace("<","")
+			.replace(">","")
+			.replace("|","");
 		return true;
 	}
 	
