@@ -1,13 +1,11 @@
-BatmanvSuperman
-SuicideSquad
-X-Men:Apocalypse
-Warcraft
-Assassin'sCreed
-NowYouSeeMe:TheSecondAct
-TheNiceGuys
-Triple9
-Neighbors2
-LondonHasFallen
-TheBrothersGrimsby
-Concussion
-TheFreeStateofJones
+Assassin'sCreed 2017-01-06.txt
+BatmanvSuperman 2016-04-01.txt
+Concussion 2016-03-11.txt
+LondonHasFallen 2016-03-04.txt
+Neighbors2 2016-05-27.txt
+SuicideSquad 2016-08-12.txt
+TheBrothersGrimsby 2016-02-26.txt
+TheFreeStateofJones 2016-04-07.txt
+TheNiceGuys 2016-05-20.txt
+Triple9 2016-03-18.txt
+Warcraft 2016-06-10.txt

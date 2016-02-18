@@ -1,2 +1,2 @@
-Witcher 2016-02-16
-Miner 2016-02-16
+Miner.txt
+Witcher.txt
