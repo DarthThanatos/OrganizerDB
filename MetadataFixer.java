@@ -16,6 +16,7 @@ public class MetadataFixer {
 		File folder = new File(dirName);
 		File[] listOfFiles = folder.listFiles();
 		String metadataContent = "";
+		String foldersInfo = "";
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {
 				System.out.println("File " + listOfFiles[i].getName());
@@ -36,17 +37,25 @@ public class MetadataFixer {
 						if(new File(dirName + "//" + listOfFiles[i].getName()).delete()) System.out.println("Deleted");
 						else System.out.println("NOT    Deleted");
 					}
+					else {
+						foldersInfo += listOfFiles[i].getName() + "\n";
+					}
 				}
 		}
 		try{
-			BufferedWriter metaWriter = new BufferedWriter(new FileWriter(dirName + "//metadata.txt"));
-			metaWriter.write(metadataContent);
-			metaWriter.close();
+			addToMetaData(dirName + "//metadata.txt", metadataContent);
 			if (metadataContent.equals("")) new File(dirName + "//metadata.txt").delete();
+			addToMetaData(dirName + "//folderInfo.txt", foldersInfo);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		if(new File(dirName).listFiles().length == 0) return true;
 		return false;
+	}
+	
+	public static void addToMetaData(String filePath, String metadataContent) throws Exception{
+		BufferedWriter metaWriter = new BufferedWriter(new FileWriter(filePath));
+		metaWriter.write(metadataContent);
+		metaWriter.close();
 	}
 }

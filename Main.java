@@ -34,8 +34,24 @@ public class Main {
 		}
 	}
 	
+	public static void updateFolderInfo(String dirDestination,String dirName){
+		if((new File(dirDestination + "//" + dirName)).mkdirs()){
+			System.out.println("Creating destination " + dirDestination +"//" + dirName);
+			try{
+				BufferedWriter metaWriter = new BufferedWriter(new FileWriter(dirDestination + "//folderInfo.txt",true));
+				metaWriter.write(dirName + "\n");
+				metaWriter.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			System.out.println("Updated " + dirDestination + "//folderInfo.txt");
+			System.out.println("Dir " + dirDestination + "//" +dirName + " created");
+		}
+	}
+	
 	public static void createType_Event_DateDB(){
 		String dirDestination = "DB type-event-date//" + evType;
+		updateFolderInfo("DB type-event-date", evType);
 		String fileDestination = dirDestination + "//" + evName + " " + evDate + ".txt";
 		String metaLine = evName + " "  + evDate +  ".txt\n";
 		createDatabase(dirDestination,fileDestination,metaLine);	
@@ -43,15 +59,14 @@ public class Main {
 	
 	public static void createDate_Type_EventDB(){
 		String dirDestination = "DB date-type-event//" + evDate + "//" + evType;
+		updateFolderInfo("DB date-type-event",evDate);
+		updateFolderInfo("DB date-type-event//" + evDate,evType);
 		String fileDestination = dirDestination + "//" + evName + ".txt";
 		String metaLine = evName + ".txt\n";
 		createDatabase(dirDestination, fileDestination,metaLine);
 	}
 	
 	public static void createDatabase(String dirDestination, String fileDestination,String metaLine){
-		System.out.println("Creating destination " + dirDestination);
-		(new File(dirDestination)).mkdirs();
-		System.out.println("Dir " + dirDestination + " created");
 		File eventFile = new File(fileDestination);
 		String metadataDest = dirDestination + "//metadata.txt";
 		File metadata = new File(metadataDest);
