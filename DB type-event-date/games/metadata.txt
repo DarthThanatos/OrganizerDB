@@ -13,3 +13,4 @@ NeedforSpeed 2016-03-17.txt
 HomefrontTheRevolution 2016-03-20.txt
 MirrorsEdgeCatalyst 2016-05-26.txt
 HomefrontTheRevolution 2016-05-20.txt
+KingsBounty 2016-02-20.txt
