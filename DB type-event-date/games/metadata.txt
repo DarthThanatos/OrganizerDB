@@ -15,3 +15,4 @@ MirrorsEdgeCatalyst 2016-05-26.txt
 HomefrontTheRevolution 2016-05-20.txt
 KingsBounty 2016-02-20.txt
 TombRaider 2016-02-21.txt
+MassEffectDemo 2016-02-22.txt
